@@ -1,0 +1,75 @@
+<script type="text/javascript">
+  function f1(){
+    //alert("Hello");
+    document.myform.submit(this.form);
+  }
+</script>
+<%if flash[:warning] %>
+  <%= flash[:warning] %>
+<% end %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+          
+            <img src="http://placehold.it/1000x550" alt="test" class="img-responsive">
+          
+            <div class="carousel-caption">
+              <h1>Example headline.</h1>
+            </div>
+          
+         </div>
+              <div class="col-md-6">
+          
+            <img src="http://placehold.it/1000x550" alt="test" class="img-responsive">
+          
+            <div class="carousel-caption">
+              <h1>Example headline.</h1>
+            </div>
+          
+         </div>
+      
+      
+ </div>
+  
+  
+</div>
+
+
+ <div class="col-md-3">
+
+<div id="my-posts">    
+ <table class="table table-bordered" border="0">
+  <tbody>
+      <tr>
+    <% @packages.each do |package| %>
+    <% @a = @a +1 %>
+        <td width="311" height="200" style="background:#fff;text-align: center;">
+
+          <center><figure class="img_wrapper" style="position: relative;"><h3 style="text-align:left;margin:0;padding:0px 0 0 0; color:#f5f5f5;position: absolute;top:0;left: 0;width:100%;"><%= package.agency.name%></h3><%= image_tag package.image.url %></figure></center><h3 style="margin:10px 0;color:#f00"><%= package.agency.name%></h3><h2 style="margin:0px 0 10px 0;"><%= package.name %></h2><p>Price: <%= package.price %></p><p>Duration: <%= package.duration %></p><p>Some description goes here for each package....</p>
+        <%= link_to "Book Now", pilgrim_new_path(package), class: "btn btn-primary" %>
+
+        </td>
+
+    <% if @a ==2 %>
+    </tr>
+    <tr>
+    <% end %>
+    <% end %>
+      </tr>
+  </tbody>
+</table>
+<% end %>
+</div>
+
+<div id="with-button">
+    <center><%= will_paginate @packages, :params => {:agency_ids => params[:agency_ids],:price_ids => params[:price_ids],:duration_ids => params[:duration_ids] }, renderer: BootstrapPagination::Rails %></center>
+</div>
+</div>
+
+
+
+
+
+
+<%= link_to "Clear Filter", home_index_path() %>
