@@ -21,6 +21,7 @@ class HomeController < ApplicationController
 
 def index
    #render "home_page"
+ 
   	@a = 0  
   	@agencies = Agency.all
     
