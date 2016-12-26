@@ -86,10 +86,8 @@
      
       
 <% if user_signed_in? %>
-  <% if current_user.has_role? :admin %>
-     
-     <%= link_to "Super Admin Dashboard", rails_admin_path %>
-     
+  <% if current_user.has_role? :admin %>     
+     <%= link_to "Super Admin Dashboard", rails_admin_path %>     
 
      <li><%= link_to "Agencies",agencies_path%> <span class="sr-only">(current)</span></li>
      <li><%=link_to "Packages", packages_path%></li>
