@@ -24,6 +24,7 @@
         <td><%= link_to 'Edit', edit_agency_path(agency),:class => "btn btn-primary"  %></td>
         <td><%= link_to 'Destroy', agency,:class => "btn btn-danger" , method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= button_to 'New Package', packages_agency_path(agency),class: "btn btn-info" %></td>
+        <td><%= button_to 'show Package', packages_agency_path(agency),class: "btn btn-info" %></td>
         </div>
       </tr>
     <% end %>

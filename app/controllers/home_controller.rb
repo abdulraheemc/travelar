@@ -20,24 +20,11 @@ class HomeController < ApplicationController
 
 
 def index
-   #render "home_page"
   	@a = 0  
   	@agencies = Agency.all
     
     @prices = Pricelimit.select(:price)
     @durations = Package.select(:duration).distinct
-
-=begin
-    if params[:agency_id]
-    	@packages = Package.where(agency_id: params[:agency_id])
-    elsif params[:price]
-    	@packages = Package.where(price: params[:price])
-    elsif params[:duration]
-    	@packages = Package.where(duration: params[:duration])
-    else
-    	@packages = Package.all
-    end    
-=end
 
     @selected_agencies = (params[:agency_ids].present? ? params[:agency_ids] : [])
     @selected_prices = (params[:price_ids].present? ? params[:price_ids] : [])
@@ -51,14 +38,7 @@ def index
     end
 
     if params[:price_ids]
-      #params[:price_ids].each do |p|
-#binding.pry
-       # @packages = params[:price_ids].map {|i| Package.where("price >= ? and price <= ?", 0, i)}
-        #@packages = Package.where("price >= ? and price <= ?", 0, params[:price_ids].map( {|i| i}))
-        @packages = Package.all
-     # end
-            
-
+        @packages = Package.where("price >= ? and price <= ?", params[:price_ids].first.to_i - 5000, params[:price_ids].last)
     end
 
     if params[:duration_ids]
@@ -66,7 +46,7 @@ def index
     end
 
     if params[:agency_ids] && params[:price_ids]
-      @packages = Package.where("agency_id IN (?) AND price IN (?)", params[:agency_ids], params[:price_ids])
+      @packages = Package.where("agency_id IN (?) AND price >= ? and price <= ?", params[:agency_ids], params[:price_ids].first.to_i - 5000, params[:price_ids].last)
     end
 
     if params[:price_ids] && params[:duration_ids]
@@ -80,7 +60,6 @@ def index
     if params[:agency_ids] && params[:price_ids] && params[:duration_ids]
       @packages = Package.where("agency_id IN (?) AND price IN (?) AND duration IN (?)", params[:agency_ids], params[:price_ids] ,params[:duration_ids])                     
     end
-#binding.pry
     if @packages.nil?
        @packages = Package.all 
      end
