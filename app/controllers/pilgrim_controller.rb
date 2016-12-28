@@ -8,7 +8,7 @@ class PilgrimController < ApplicationController
   def show
   end
   def create
-    binding.pry
+   # binding.pry
     @pilgrim = Pilgrim.new(pilgrim_params)
     if @pilgrim.save
 
