@@ -1,65 +1,58 @@
-<div class="row equal">
-      <%= form_for @pilgrim , url: {action: "create"} do |f| %>  
-      <div class="col-xs-6 col-sm-4">
-        <div>
-          <%= f.label :firstname, class: "col-xs-4" %>
-          <%= f.text_field :firstname,class: "col-xs-7" %> 
-        
-          <%= f.label :middlename, class: "col-xs-4" %>
-          <%= f.text_field :middlename ,class: "col-xs-7" %> 
-        
-          <%= f.label :lastname , class: "col-xs-4"%>
-          <%= f.text_field :lastname ,class: "col-xs-7" %>
-        </div>
+<div class="container">
+  <%= form_for @pilgrim , url: {action: "create"} do |f| %> 
+    <div class="row">
+     <div class="col-sm-12">
+      <%= f.label :firstname, class: "col-sm-1" %>  
+        <%= f.text_field :firstname,class: "col-sm-2"%> 
+
+        <%= f.label :middlename, class: "col-sm-1" %>
+        <%= f.text_field :middlename ,class: "col-sm-2" %> 
+
+        <%= f.label :lastname, class: "col-sm-1" %>
+        <%= f.text_field :lastname ,class: "col-sm-2" %>
       </div>
+    </div><br/>
 
-      <div class="col-xs-6 col-sm-4">
-        <%= f.label :email, class: "col-xs-4" %>  
-        <%= f.email_field :email,class: "col-xs-6" %>
+    <div class="row">
+      <div class="col-sm-12">
 
-        <%= f.label :mobile_number, class: "col-xs-4" %>  
-        <%= f.text_field :mobile_number,class: "col-xs-6" %>       
+        <%= f.label :email, class: "col-sm-1" %>  
+        <%= f.email_field :email,class: "col-sm-2" %>
+
+        <%= f.label :mobile_number, class: "col-sm-1" %>  
+        <%= f.text_field :mobile_number,class: "col-sm-2" %>       
          
-        <%= f.label :gender %> 
-        <%= f.select :gender ,"<option></option><option>Male</option><option>Female</option>".html_safe %> <br/>
+        <%= f.label :gender, class: "col-sm-1" %> 
+        <%= f.select :gender, "<option></option><option>Male</option><option>Female</option>".html_safe ,class: "col-sm-2"%> 
       </div>
-
-      <div class="col-xs-6 col-sm-4">
-        <%= f.label :age_group, class: "col-xs-4" %>  
-        <%= f.text_field :age_group,class: "col-xs-6" %> 
-
-        <%= f.label :passport_number, class: "col-xs-4" %>  
-        <%= f.text_field :passport_number,class: "col-xs-8" %> 
-
-        <%= f.label :image, class: "col-xs-4" %>  
-        <%= f.file_field :image ,class: "col-xs-8" %>       
-     
-      </div>
-
-</div>
-
-
-<div class="form-group row">
-  <div class= "container">
-    <p>
-      <div>
-        
-      </div>
-    </p>  
-    
-     
-
-    <%= f.fields_for :copilgrims do |ff| %>
-      <% render "copilgrims",:ff => ff %>
-    <%end%>
-
-    <div class="form-group">
-      <%= f.submit "Submit", class: "btn btn-primary" %>
-      <%= link_to "Cancel", root_path, class: "btn btn-default" %></td>
     </div>
-  </div>
-</div>
 
-<% end %>
+    <div class="row">
+      <div class="col-sm-12">
+        <%= f.label :age_group, class: "col-sm-1" %>  
+        <%= f.text_field :age_group,class: "col-sm-2" %> 
+
+        <%= f.label :passport_number, class: "col-sm-1" %>  
+        <%= f.text_field :passport_number,class: "col-sm-2" %> 
+
+        <%= f.label :image, class: "col-sm-1" %>  
+        <%= f.file_field :image ,class: "col-sm-2" %>     
+      </div>
+    </div>
+
+    <div class="row">
+      <%= f.fields_for :copilgrims do |ff| %>
+        <% render "copilgrims",:ff => ff %>
+      <%end%>
+    </div><br/>
+    
+
+    <div class="row">
+      <%= link_to "Back", root_path, class: "btn btn-warning" %></td>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+      <%= link_to "Cancel", root_path, class: "btn btn-danger" %></td>
+    </div>  
+  <% end %>
+</div>
 
 
