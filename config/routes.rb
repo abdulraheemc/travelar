@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  #devise_for :users, :controllers => { registrations: 'registrations' }
+
   get 'agencies/approval'
   post 'agencies/new'
   post 'packages/:id/new',to: "packages#new" , as: "packages_agency"
@@ -30,7 +32,7 @@ Rails.application.routes.draw do
   resources :agencies
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
   get 'home/user_dashboard'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
