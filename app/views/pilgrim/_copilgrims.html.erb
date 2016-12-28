@@ -1,11 +1,39 @@
 <h2> Add Passengers </h2>
 <div class="container">
+	<form id="bookForm" method="post" class="form-horizontal">
+		<div class = "row col-sm-12">
+			<div class ="col-sm-2">
+				<%= ff.text_field :firstname ,placeholder: "Passenger Name"%>&nbsp;&nbsp;&nbsp;
+			</div>
+			<div class ="col-sm-2">
+				<%= ff.text_field :mobile_number,placeholder: "Mobile Number" %>&nbsp;&nbsp;&nbsp;
+			</div>
+			<div class ="col-sm-2">
+				<%= ff.text_field :gender,placeholder: "Gender" %>&nbsp;&nbsp;&nbsp;
+			</div>
+			<div class ="col-sm-2">
+				<%= ff.text_field :passport_number,placeholder: "Passport Number" %>&nbsp;&nbsp;&nbsp;<br/>
+			</div>
+		</div> 
 
-  Passenger Name: <%= ff.text_field :firstname ,placeholder: "Passenger Name"%>&nbsp;&nbsp;&nbsp;
-  Mobile:<%= ff.text_field :mobile_number,placeholder: "Mobile Number" %>&nbsp;&nbsp;&nbsp;
-  Gender: <%= ff.text_field :gender,placeholder: "Gender" %>&nbsp;&nbsp;&nbsp;
-  Passport no: <%= ff.text_field :passport_number,placeholder: "Passport Number" %>&nbsp;&nbsp;&nbsp;<br/>
-
-  <%= link_to "Back", root_path, class: "btn btn-warning" %></td>
-   
+		<div class="form-group hide" id="bookTemplate">
+			<div class="row col-sm-12">
+		        <div class="col-sm-2 col-xs-offset-1">
+		            <%= ff.text_field :firstname ,placeholder: "Passenger Name"%>&nbsp;&nbsp;&nbsp;
+		        </div>
+		        <div class="col-sm-2">
+		            <%= ff.text_field :mobile_number,placeholder: "Mobile Number" %>&nbsp;&nbsp;&nbsp;
+		        </div>
+		        <div class="col-sm-2">
+		           <%= ff.text_field :gender,placeholder: "Gender" %>&nbsp;&nbsp;&nbsp;
+		        </div>
+		        <div class ="col-sm-2">
+					<%= ff.text_field :passport_number,placeholder: "Passport Number" %>&nbsp;&nbsp;&nbsp;<br/>
+				</div>
+		        <div class="col-sm-2">
+		            <button type="button" class="btn btn-default removeButton"><i class="fa fa-minus"></i></button>
+		        </div>
+	    	</div>
+	    </div>
+  	</form>
 </div>

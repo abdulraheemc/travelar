@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get 'home/traveler_dashboard'
   post 'home/traveler_dashboard'
   get 'home/agnet_dashboard'
+  get 'home/search'
    end
   end
   

@@ -9,8 +9,7 @@ def index
 end
 
 def show
-  @agent = Agent.find params[:id]
-  
+  @agent = Agent.find params[:id]  
 end
 def create
     @agent = current_user.agents.new(agent_params)
