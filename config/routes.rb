@@ -34,6 +34,8 @@ Rails.application.routes.draw do
   post 'home/traveler_dashboard'
   get 'home/agnet_dashboard'
   get 'home/search'
+  get 'home/umrahpackage'
+  get 'home/hajjpackage'
    end
   end
   

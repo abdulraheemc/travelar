@@ -48,84 +48,115 @@
 </style>  
 </head>
 <body>
-<div class="container">
-  <div id="header">
 
-<nav class="navbar navbar-dark bg-primary">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<header>
+  <div class="top_bar">
+    <div class="container">
+      <div class="col-md-6">
+        <ul class="social">
+          <li><a target="_blank" href="https://www.webenlance.com/"><i class="fa fa-facebook text-white"></i></a></li>
+          <li><a target="_blank" href="https://webenlance.com"><i class="fa fa-twitter text-white"></i></a></li>
+          <li><a target="_blank" href="http://webenlance.com"><i class="fa fa-instagram text-white"></i></a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-6">
+        <ul class="rightc">        
+          <li><i class="fa fa-user"></i><%= link_to "Become Agent", new_agent_path %></li>    
+        </ul>
+      </div>
+    </div>
+  </div>
+<!--top_bar-->
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" >
         <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to 'UmrahHajjOnline.com', root_path, class: 'navbar-brand' %>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active">
+        <br/>
+        </button>
         
-      </ul>
 
-      <ul class="nav navbar-nav pull-right">
-          <% if user_signed_in? %>
-              <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-              <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li> 
-            <% if current_user.has_role? :admin %>
-             
-              <%= link_to "Super Admin Dashboard", rails_admin_path %>
-              <li><%= link_to "Agencies",agencies_path%> <span class="sr-only">(current)</span></li>
-              <li><%=link_to "Packages", packages_path%></li>
+      </div>
 
-            <% elsif current_user.has_role? :agent %>
-                  <%= link_to "Agent Dashboard", packages_path %>
-                  <li><%= link_to "Agencies",agencies_path%> <span class="sr-only">(current)</span></li>
-                  <li><%=link_to "Packages", packages_path%></li>
-            <% else %><% current_user.has_role? :traveler %>
-                  <%= link_to "Traveler Dashboard", home_traveler_dashboard_home_path %>
-            <% end %>
-                        <li>HI <strong><%= current_user.name %></strong></li> 
-                        <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> 
+            <ul class="nav navbar-nav navbar-left">
+            <li><a class="navbar-brand"><%=link_to "UmrahHajjOnline",root_path%></a></li>
+            <li><%= link_to "Umrah Package",home_umrahpackage_home_path%></li>
+            <li><%= link_to "Hajj Package",home_hajjpackage_home_path%></li>
+            </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Home</a></li>
+            
+            <li class="dropdown">
+            <% if user_signed_in? %>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi:<%= current_user.email %></a>
+              <ul class="dropdown-menu">                
+                  <% if current_user.has_role? :admin %>
+                        <%= link_to "Super Admin Dashboard", rails_admin_path %>
+                        <li class="divider"></li>
+                        <li><%= link_to "Agencies",agencies_path%> <span class="sr-only">(current)</span></li>
+                        <li class="divider"></li>
+                        <li><%=link_to "Packages", packages_path%></li>
+                  <% elsif current_user.has_role? :agent %>
+                        <%= link_to "Agent Dashboard", packages_path %>
+                        <li class="divider"></li>   
+                        <li><%= link_to "Agencies",agencies_path%> <span class="sr-only">(current)</span></li>
+                        <li class="divider"></li>
+                        <li><%=link_to "Packages", packages_path%></li>
 
-            <% unless current_user.has_role? :agent or current_user.has_role? :admin or current_user.agents[0] %>
-                  <li><%= link_to "Become Agent", new_agent_path, :class => 'navbar-link'  %></li>
-            <% end %>
-                  <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li> 
-           <% if current_user.has_role? :admin%>
-                  <%= link_to "Approve",agencies_approval_path %>
-           <% end %>
-          </ul>
-         </li>
-     <% else %>
-            <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
-            <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
-     <% end %>                   
-   </div>
-  </ul>
- </div>
-</nav>
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
+                  <% else %><% current_user.has_role? :traveler %>
+                        <%= link_to "Traveler Dashboard", home_traveler_dashboard_home_path %>
+                        <li class="divider"></li>
 
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
-</div>
-</div>
-<div class="container">
+                  <% end %>
+                  <% unless current_user.has_role? :agent or current_user.has_role? :admin or current_user.agents[0] %>
+                        <li><%= link_to "Become Agent", new_agent_path, :class => 'navbar-link'  %></li>
+                        <li class="divider"></li>
+                  <% end %>
+
+                        <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li> 
+
+                  <% if current_user.has_role? :admin%>
+                           <li class="divider"></li>
+                           <%= link_to "Approve",agencies_approval_path %>
+                  <% end %>
+                  <% else %>
+                          <li><%= link_to "Signup", new_user_registration_path, :class => 'navbar-link',:class =>"glyphicon glyphicon-user"  %></li>
+                        <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link',:class => "glyphicon glyphicon-log-in"  %></li>
+                  <% end %> 
+
+                
+              </ul>
+            </li>
+                      
+                  
+        </ul>
+
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+</header>
+
+
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+  </div>
+  </div>
+  <div class="container">
 
 <%= yield %>
 </div>
   <div id="footer"></div> 
->>>>>>> e5522ad092d3469914f6c2399da98734f5a89e6d
 
   </body>
   </html>
