@@ -239,6 +239,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.0)
   jquery-rails
+  nested_form
   paperclip (~> 5.0.0)
   pg
   pry

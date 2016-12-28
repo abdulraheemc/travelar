@@ -4,6 +4,7 @@ gem "cancancan"
 gem "rolify"
 
 gem 'devise'
+gem "nested_form"
 
 gem 'rails_admin', '~> 1.0'
 

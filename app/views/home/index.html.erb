@@ -92,6 +92,8 @@ td, th {
           <p><h4><%= package.agency.name%></h4></p>          
           <p><h4>Price : <%= package.price %> Rupees</h4></p>
           <p><h4>Duration : <%= package.duration %></h4></p>
+          <p><h4>Starting City : <%= package.starting_city %></h4></p>
+          <p><h4>Availble Bookings : <%= package.ticket_no %></h4></p>
           
           <%= link_to "Book Now", pilgrim_new_path(package), class: "btn btn-primary"%><br/><br/>
       </div>
