@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-
+  
   def traveler_dashboard
   end
 
