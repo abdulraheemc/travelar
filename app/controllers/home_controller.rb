@@ -40,7 +40,7 @@ def index
     end
 
     if params[:price_ids]
-        @packages = Package.where("price >= ? and price <= ?", params[:price_ids].first.to_i - 5000, params[:price_ids].last)
+        @packages = Package.where("price >= ? and price <= ?", params[:price_ids].first.to_i - 4999, params[:price_ids].last)
     end
 
     if params[:duration_ids]
@@ -48,7 +48,7 @@ def index
     end
 
     if params[:agency_ids] && params[:price_ids]
-      @packages = Package.where("agency_id IN (?) AND price >= ? and price <= ?", params[:agency_ids], params[:price_ids].first.to_i - 5000, params[:price_ids].last)
+      @packages = Package.where("agency_id IN (?) AND price >= ? and price <= ?", params[:agency_ids], params[:price_ids].first.to_i - 4999, params[:price_ids].last)
     end
 
     if params[:price_ids] && params[:duration_ids]
