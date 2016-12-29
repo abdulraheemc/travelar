@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  
   def traveler_dashboard
   end
 
@@ -22,7 +23,8 @@ class HomeController < ApplicationController
 def index
   	@a = 0  
   	@agencies = Agency.all
-    
+   # binding.pry
+    @package = Package.all
     @prices = Pricelimit.select(:price)
     @durations = Package.select(:duration).distinct
 

@@ -1,36 +1,48 @@
 Rails.application.routes.draw do
+  #devise_for :users, :controllers => { registrations: 'registrations' }
+
   get 'agencies/approval'
   post 'agencies/new'
-  post 'packages/:id/new',to: "packages#new" , as: "packages_agency"
   get 'agencies/:id/approve', :to => 'agencies#approve', :as => 'parvez'
 
   get 'home/contact_us'
   get 'home/about_us'
   get 'home/home_page'
-  get 'pilgrim/:id/new' , to: "pilgrim#new", as: "pilgrim_new"
+  get 'home/index'
+  post 'home/index'
+
+  post 'packages/:id/new',to: "packages#new" , as: "packages_agency"
+
   
-  resources :agents  
+  get 'pilgrim/:id/new' , to: "pilgrim#new", as: "pilgrim_new"
   post 'pilgrim/create'
   get 'pilgrim/show'
   get 'pilgrim/index'
 
-
+  #devise_for :users
+  resources :agents 
   resources :packages
-  get 'home/index'
-  post 'home/index'
+  resources :agencies
+  devise_for :users, :controllers => { registrations: 'registrations' }
+
+  
+  
   get 'book_now/:id' , to: "home#book_now", as: "book_now"
   resource :home do
     member do
   get 'home/traveler_dashboard'
   post 'home/traveler_dashboard'
   get 'home/agnet_dashboard'
+  get 'home/search'
+  get 'home/umrahpackage'
+  get 'home/hajjpackage'
    end
   end
   
-  resources :agencies
+  
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users
+
   get 'home/user_dashboard'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
