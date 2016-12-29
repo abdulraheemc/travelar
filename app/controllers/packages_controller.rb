@@ -1,10 +1,15 @@
 class PackagesController < ApplicationController
   before_action :set_package, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:search_packages]
 
 
   # GET /packages
   # GET /packages.json
+  def search_packages   
+    #binding.pry
+    @package = Package.where(starting_city: params[:package])
+
+  end
   def index
     #binding.pry
    # if current_user.agents.packages

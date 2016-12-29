@@ -1,25 +1,24 @@
-
+  <%= form_tag  search_packages_packages_path do %>
 <div class ="search">
 
 <section class="tour section-wrapper container">    
     <div class="row col-md-12">
       <div class="col-md-2">
           <div class="form-group">
-                 <%= select_tag "package", options_from_collection_for_select(Package.all, "id", "starting_city"), :prompt=>"select Location", class: "form-control border-radius", id: "sel1" %>
+                 <%= select_tag "from", options_from_collection_for_select(Package.all, "starting_city", "starting_city"), :prompt=>"Starting City", class: "form-control border-radius", id: "sel1" %>
           </div>
       </div>
 
       <div class="col-md-2">
         <form role="form" class="form-dropdown">
           <div class="form-group">
-            <select class="form-control border-radius" id="sel1">
-              <option>Umrah/Hajj</option>              
-            </select>
+          <%= select_tag "destination", "<option>Umrah/Hajj</option> ".html_safe, :prompt=>"Destination", class: "form-control border-radius", id: "sel1" %>
+          
           </div>
         </form>
       </div>
 
-      
+      <!--
       <div class="col-md-2">
         <div class="input-group">
           <input type="text" class="form-control border-radius border-right" id="datetimepicker9" placeholder="Journey Date"/>
@@ -35,18 +34,17 @@
           <span class="input-group-addon border-radius custom-addon">
             <i class="ion-ios-calendar"></i>
           </span>
-        </div>
-      </div>
+        </div>,
+      </div>-->
 
       <div class="col-md-2">
-        <div class="btn btn-success border-radius custom-button">
-          Search
+        <div >
+        <%= submit_tag "Search",class: "btn btn-success border-radius custom-button"%>
+          
         </div>
       </div>
     </div>
   </section>
 
 </div>
-
-
-
+<% end %>
