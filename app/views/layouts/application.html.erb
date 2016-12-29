@@ -93,7 +93,7 @@
             
             <li class="dropdown">
             <% if user_signed_in? %>
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi:<%= current_user.email %></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">hai ||  <%= current_user.name %></a>
               <ul class="dropdown-menu">                
                   <% if current_user.has_role? :admin %>
                         <%= link_to "Super Admin Dashboard", rails_admin_path %>
