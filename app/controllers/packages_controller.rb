@@ -6,7 +6,7 @@ class PackagesController < ApplicationController
   # GET /packages
   # GET /packages.json
   def search_packages   
-    binding.pry
+    #binding.pry
     @package = Package.where(starting_city: params[:from])
 
   end
