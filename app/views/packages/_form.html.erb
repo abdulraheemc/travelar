@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-  <%= f.hidden_field :agency_id, :value => @agency.id %>
+  <%= f.hidden_field :agency_id, :value => @agency.id if @agency %>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
