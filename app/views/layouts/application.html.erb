@@ -55,15 +55,15 @@
     <div class="container">
       <div class="col-md-6">
         <ul class="social">
-          <li><a target="_blank" href="https://www.webenlance.com/"><i class="fa fa-facebook text-white"></i></a></li>
-          <li><a target="_blank" href="https://webenlance.com"><i class="fa fa-twitter text-white"></i></a></li>
-          <li><a target="_blank" href="http://webenlance.com"><i class="fa fa-instagram text-white"></i></a></li>
+          <li><a target="_blank" href="https://www.facebook.com/"><i class="fa fa-facebook text-white"></i></a></li>
+          <li><a target="_blank" href="https://www.twitter.com"><i class="fa fa-twitter text-white"></i></a></li>
+          <li><a target="_blank" href="http://www.instagram.com"><i class="fa fa-instagram text-white"></i></a></li>
         </ul>
       </div>
 
       <div class="col-md-6">
         <ul class="rightc">        
-          <li><i class="fa fa-user"></i><%= link_to "Become Agent", new_agent_path %></li>    
+          <li><i class="glyphicon glyphicon-gift"></i>Deals</li>    
         </ul>
       </div>
     </div>
@@ -89,24 +89,22 @@
             <li><%= link_to "Hajj Package",home_hajjpackage_home_path%></li>
             </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Home</a></li>
-            
             <li class="dropdown">
             <% if user_signed_in? %>
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi:<%= current_user.email %></a>
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i><%= current_user.name.capitalize%><span class="caret"></span></a>
               <ul class="dropdown-menu">                
                   <% if current_user.has_role? :admin %>
                         <%= link_to "Super Admin Dashboard", rails_admin_path %>
                         <li class="divider"></li>
                         <li><%= link_to "Agencies",agencies_path%> <span class="sr-only">(current)</span></li>
                         <li class="divider"></li>
-                        <li><%=link_to "Packages", packages_path%></li>
+                        
                   <% elsif current_user.has_role? :agent %>
                         <%= link_to "Agent Dashboard", packages_path %>
                         <li class="divider"></li>   
                         <li><%= link_to "Agencies",agencies_path%> <span class="sr-only">(current)</span></li>
                         <li class="divider"></li>
-                        <li><%=link_to "Packages", packages_path%></li>
+                      
 
                   <% else %><% current_user.has_role? :traveler %>
                         <%= link_to "Traveler Dashboard", home_traveler_dashboard_home_path %>

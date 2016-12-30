@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161228142613) do
+=======
+ActiveRecord::Schema.define(version: 20161229102215) do
+>>>>>>> 5431daca16d0c903608af56ea904513ee55ab5fa
 
   create_table "agencies", force: :cascade do |t|
     t.string   "name"
@@ -30,10 +34,9 @@ ActiveRecord::Schema.define(version: 20161228142613) do
     t.string   "id_proof"
     t.string   "agency_name"
     t.string   "agency_phone"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "user_id"
-    t.boolean  "approve",       default: false, null: false
   end
 
   create_table "packages", force: :cascade do |t|
@@ -102,6 +105,10 @@ ActiveRecord::Schema.define(version: 20161228142613) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+<<<<<<< HEAD
+=======
+    t.string   "name"
+>>>>>>> 5431daca16d0c903608af56ea904513ee55ab5fa
     t.string   "role"
   end
 

@@ -7,7 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
  @user = User.create(email: 'email@admin.com', password: 'password', password_confirmation: 'password')
- @user.add_role :admin
+ @user.add_role :admin 
  Pricelimit.create(price: 5000)
-  Pricelimit.create(price: 10000)
-   Pricelimit.create(price: 15000)
+ Pricelimit.create(price: 10000)
+ Pricelimit.create(price: 15000)
+
+ @user = User.create(email: 'user1@user.com', password: 'password', password_confirmation: 'password')
+ @user = User.create(email: 'user2@user.com', password: 'password', password_confirmation: 'password')
+ @user = User.create(email: 'agent1@agent.com', password: 'password', password_confirmation: 'password')
+ 
