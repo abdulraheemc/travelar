@@ -5,14 +5,14 @@
     <div class="row col-md-12">
       <div class="col-md-2">
           <div class="form-group">
-                 <%= select_tag "from", options_from_collection_for_select(Package.all, "starting_city", "starting_city"), :prompt=>"Starting City", class: "form-control border-radius", id: "sel1" %>
+                 <%= select_tag "from", options_from_collection_for_select(Package.select(:starting_city).distinct, "starting_city", "starting_city"), :prompt=>"--Starting City--", class: "form-control border-radius", id: "sel1" %>
           </div>
       </div>
 
       <div class="col-md-2">
         <form role="form" class="form-dropdown">
           <div class="form-group">
-          <%= select_tag "destination", "<option>Umrah/Hajj</option> ".html_safe, :prompt=>"Destination", class: "form-control border-radius", id: "sel1" %>
+          <%= select_tag "to", options_from_collection_for_select(Package.select(:trip_to).distinct, "trip_to", "trip_to"), :prompt=>"--Trip--", class: "form-control border-radius", id: "sel1" %>
           
           </div>
         </form>

@@ -7,7 +7,7 @@ class PackagesController < ApplicationController
   # GET /packages.json
   def search_packages   
     #binding.pry
-    @package = Package.where(starting_city: params[:from])
+    @package = Package.where(starting_city: params[:from]).where(trip_to: params[:to])
 
   end
   def index
@@ -87,6 +87,6 @@ class PackagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def package_params
-      params.require(:package).permit(:name, :price, :image, :duration, :agency_id, :starting_city,:journey_date, :ticket_no)
+      params.require(:package).permit(:name, :price, :image,:trip_to, :duration, :agency_id, :starting_city,:journey_date, :ticket_no)
     end
 end
