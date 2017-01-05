@@ -10,14 +10,26 @@
       </ul>
     </div>
   <% end %>
-  <%= f.hidden_field :agency_id, :value => @agency.id %>
+  <%= f.hidden_field :agency_id, :value => @agency.id if @agency %>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <%= f.label :Starting_city %><br>
+    <%= f.text_field :starting_city %>
+  </div>
+  <div class="field">
+    <%= f.label :journey_date %><br>
+    <%= f.date_field :journey_date %>
+  </div>
+  <div class="field">
     <%= f.label :price %><br>
     <%= f.number_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :Number_of_Tickets %><br>
+    <%= f.text_field :ticket_no %>
   </div>
   <div class="field">
     <%= f.label :duration %><br>

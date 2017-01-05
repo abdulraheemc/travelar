@@ -4,10 +4,12 @@ gem "cancancan"
 gem "rolify"
 
 gem 'devise'
+gem "nested_form"
 
 gem 'rails_admin', '~> 1.0'
 
 gem "paperclip", "~> 5.0.0"
+gem 'bootstrap-datepicker-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'

@@ -1,6 +1,15 @@
+
 /*
   =require twitter-bootstrap-static/bootstrap
 
   Static version of css will use Glyphicons sprites by default
   =require twitter-bootstrap-static/sprites
 */
+
+
+*:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0px 5px 0px -2px;
+}

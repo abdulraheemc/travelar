@@ -1,0 +1,52 @@
+
+<div class ="search">
+
+<section class="tour section-wrapper container">    
+    <div class="row col-md-12">
+      <div class="col-md-2">
+          <div class="form-group">
+                 <%= select_tag "package", options_from_collection_for_select(Package.all, "id", "starting_city"), :prompt=>"select Location", class: "form-control border-radius", id: "sel1" %>
+          </div>
+      </div>
+
+      <div class="col-md-2">
+        <form role="form" class="form-dropdown">
+          <div class="form-group">
+            <select class="form-control border-radius" id="sel1">
+              <option>Umrah/Hajj</option>              
+            </select>
+          </div>
+        </form>
+      </div>
+
+      
+      <div class="col-md-2">
+        <div class="input-group">
+          <input type="text" class="form-control border-radius border-right" placeholder="Journey Date"/>
+          <span class="input-group-addon border-radius custom-addon">
+            <i class="ion-ios-calendar"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="input-group">
+          <input type="text" class="form-control border-radius border-right" placeholder="No.Of Tickets"/>
+          <span class="input-group-addon border-radius custom-addon">
+            <i class="ion-ios-calendar"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="btn btn-success border-radius custom-button">
+          Search
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+

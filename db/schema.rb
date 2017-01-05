@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161223074203) do
+ActiveRecord::Schema.define(version: 20161229102215) do
 
   create_table "agencies", force: :cascade do |t|
     t.string   "name"
@@ -30,10 +30,9 @@ ActiveRecord::Schema.define(version: 20161223074203) do
     t.string   "id_proof"
     t.string   "agency_name"
     t.string   "agency_phone"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "user_id"
-    t.boolean  "approve",       default: false, null: false
   end
 
   create_table "packages", force: :cascade do |t|
@@ -47,6 +46,9 @@ ActiveRecord::Schema.define(version: 20161223074203) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "agency_id"
+    t.string   "starting_city"
+    t.date     "journey_date"
+    t.integer  "ticket_no"
   end
 
   create_table "pilgrims", force: :cascade do |t|
@@ -58,10 +60,15 @@ ActiveRecord::Schema.define(version: 20161223074203) do
     t.string   "age_group"
     t.string   "email"
     t.string   "mobile_number"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "package_id"
     t.integer  "copilgrim_id"
+    t.string   "passport_image"
+    t.string   "passport_image_file_name"
+    t.string   "passport_image_content_type"
+    t.integer  "passport_image_file_size"
+    t.datetime "passport_image_updated_at"
   end
 
   create_table "pricelimits", force: :cascade do |t|
@@ -94,6 +101,7 @@ ActiveRecord::Schema.define(version: 20161223074203) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
     t.string   "role"
   end
 
