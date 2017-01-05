@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_action :set_filter, only: [:index,:hajjpackage,:umrahpackage]
   
   def traveler_dashboard
   end
@@ -6,10 +7,12 @@ class HomeController < ApplicationController
   def agent_dashboard
   end
 
-  def home_page
+  def hajjpackage
+    @packages = Package.where(:trip_to=>"Hajj")
   end
 
-  def contact_us
+  def umrahpackage
+    @packages = Package.where(:trip_to=>"Umrah")
   end
 
   def about_us
@@ -26,14 +29,9 @@ def index
   	@agencies = Agency.all
    
     #@package = Package.all
-    @package_trips = Package.select(:trip_to).distinct
-    @prices = Pricelimit.select(:price)
-    @durations = Package.select(:duration).distinct
-
-    @selected_trips = (params[:trip_ids].present? ? params[:trip_ids] : [])
-    @selected_agencies = (params[:agency_ids].present? ? params[:agency_ids] : [])
-    @selected_prices = (params[:price_ids].present? ? params[:price_ids] : [])
-    @selected_durations = (params[:duration_ids].present? ? params[:duration_ids] : [])
+    #@package_trips = Package.select(:trip_to).distinct
+    #@prices = Pricelimit.select(:price)
+    #@durations = Package.select(:duration).distinct
 
 
     if params[:trip_ids]
@@ -115,4 +113,13 @@ def index
 
 
   end
+
+private 
+
+def set_filter
+    @selected_trips = (params[:trip_ids].present? ? params[:trip_ids] : [])
+    @selected_agencies = (params[:agency_ids].present? ? params[:agency_ids] : [])
+    @selected_prices = (params[:price_ids].present? ? params[:price_ids] : [])
+    @selected_durations = (params[:duration_ids].present? ? params[:duration_ids] : [])
+end
 end
