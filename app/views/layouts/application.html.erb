@@ -81,60 +81,6 @@
       <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" >
         <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to 'UmrahHajjOnline.com', root_path, class: 'navbar-brand' %>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active">
-        <li><%=link_to "Contact Us",home_contact_us_path%></li>
-        <li><%=link_to "About Us",home_about_us_path%></li>
-      </ul>
-      
-      <ul class="nav navbar-nav navbar-right">
-
-<% 
-=begin %><% if user_signed_in? %>     
- <% if current_user.role=="admin" %>
- <%= link_to "Super Admin Dashboard", rails_admin_path %>
- <% elsif current_user.role=="agent" %>
-  <%= link_to "Agent Dashboard", packages_path %>
-
-  <% else %><% current_user.role=="user" %>
-  <%= link_to "Traveler Dashboard", home_traveler_dashboard_home_path %>
-
- <% end %>
- <% 
-=end %>
-     
-      
-<% if user_signed_in? %>
-  <% if current_user.has_role? :admin %>     
-     <%= link_to "Super Admin Dashboard", rails_admin_path %>     
-
-     <li><%= link_to "Agencies",agencies_path%> <span class="sr-only">(current)</span></li>
-     <li><%=link_to "Packages", packages_path%></li>
-
-  <% elsif current_user.has_role? :agent %>
-     <%= link_to "Agent Dashboard", packages_path %>
-     
-     <li><%= link_to "Agencies",agencies_path%> <span class="sr-only">(current)</span></li>
-     <li><%=link_to "Packages", packages_path%></li>
-
-  <% else %><% current_user.has_role? :traveler %>
-     <%= link_to "Traveler Dashboard", home_traveler_dashboard_home_path %>
-  <% end %>
-
-     <li>HI <strong><%= current_user.email %></strong></li> 
-
-  <% unless current_user.has_role? :agent or current_user.has_role? :admin or current_user.agents[0] %>
-     <li><%= link_to "Become Agent", new_agent_path, :class => 'navbar-link'  %></li>
-=======
         <br/>
         </button>
         
@@ -204,7 +150,6 @@
 
   <% if notice %>
     <p class="alert alert-success"><%= notice %></p>
->>>>>>> 5431daca16d0c903608af56ea904513ee55ab5fa
   <% end %>
 
   <% if alert %>
