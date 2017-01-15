@@ -1,0 +1,17 @@
+<div class="container">
+		<div class = "row col-sm-12">
+			<div class ="col-sm-2">
+				<%= ff.text_field :firstname ,placeholder: "Passenger Name"%>&nbsp;&nbsp;&nbsp;
+			</div>
+			<div class ="col-sm-2">
+				<%= ff.text_field :mobile_number,placeholder: "Mobile Number" %>&nbsp;&nbsp;&nbsp;
+			</div>
+			<div class ="col-sm-2">
+				<%= ff.text_field :gender,placeholder: "Gender" %>&nbsp;&nbsp;&nbsp;
+			</div>
+			<div class ="col-sm-2">
+				<%= ff.text_field :passport_number,placeholder: "Passport Number" %>&nbsp;&nbsp;&nbsp;<br/>
+			</div>
+		</div> <%= ff.link_to_remove "Remove Passenger", class: "btn btn-danger btn-sm pull-right"  %>
+
+</div>

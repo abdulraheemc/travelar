@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TravelSure</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <%= csrf_meta_tags %>
+
+<style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+#header{
+  margin: 1% auto;
+  width:100%;
+  height: 20%;
+  border-left:1px;
+}
+  
+#sidemenu{
+  background-color:#CCCCCC;
+  margin: 0% 0.5% 1% 0%;
+  width:22%;
+  height: 60%;
+  float: left;  
+}
+  
+#content{
+  margin: 0% 0% 1% 0.5%;
+  width:77%;
+  height: 60%;
+  float: left;
+}
+  
+#footer{
+  background-color:cyan;
+  margin: 0% 5% 1% 5%;
+  width:90%;
+  height: 16%;
+  float: left;
+} 
+.navbar-brand {
+  color: #fff;
+}
+#bs-example-navbar-collapse-1 li:hover { 
+    background-color: yellow;
+    }
+
+</style>  
+</head>
+<body>
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<%#= render :partial => "/home/sidefilter" %>
+<header>
+  <div class="top_bar">
+    <div class="container">
+      <div class="col-md-6">
+        <ul class="social">
+          <li><a target="_blank" href="https://www.facebook.com/"><i class="fa fa-facebook text-white"></i></a></li>
+          <li><a target="_blank" href="https://www.twitter.com"><i class="fa fa-twitter text-white"></i></a></li>
+          <li><a target="_blank" href="http://www.instagram.com"><i class="fa fa-instagram text-white"></i></a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-6">
+        <ul class="rightc">        
+          <li><i class="glyphicon glyphicon-gift"></i>Deals</li>    
+        </ul>
+      </div>
+    </div>
+  </div>
+<!--top_bar-->
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" >
+        <span class="sr-only">Toggle navigation</span>
+        <br/>
+        </button>
+        
+
+      </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse "  id="bs-example-navbar-collapse-1"> 
+            <ul class="nav navbar-nav navbar-left sec_bar">
+            <li> <a class="navbar-brand" href="#"><span>UmrahHajjOnline</span></a></li>
+            <li><%=link_to "Home",root_path%></a></li>
+            <li><%= link_to "Umrah Packages",home_umrahpackage_home_path%></li>
+            <li><%= link_to "Hajj Packages",home_hajjpackage_home_path%></li>
+            </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+            <% if user_signed_in? %>
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i><%= current_user.name.capitalize%><span class="caret"></span></a>
+              <ul class="dropdown-menu">                
+                  <% if current_user.has_role? :admin %>
+                        <%= link_to "Super Admin Dashboard", rails_admin_path %>
+                        <li class="divider"></li>
+                        <li><%= link_to "Agencies",agencies_path%> <span class="sr-only">(current)</span></li>
+                        <li class="divider"></li>
+                        
+                  <% elsif current_user.has_role? :agent %>
+                        <%= link_to "Agent Dashboard", packages_path %>
+                        <li class="divider"></li>   
+                        <li><%= link_to "Agencies",agencies_path%> <span class="sr-only">(current)</span></li>
+                        <li class="divider"></li>
+                      
+
+                  <% else %><% current_user.has_role? :traveler %>
+                        <%= link_to "Traveler Dashboard", home_traveler_dashboard_home_path %>
+                        <li class="divider"></li>
+
+                  <% end %>
+                  <% unless current_user.has_role? :agent or current_user.has_role? :admin or current_user.agents[0] %>
+                        <li><%= link_to "Become Agent", new_agent_path, :class => 'navbar-link'  %></li>
+                        <li class="divider"></li>
+                  <% end %>
+
+                        <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li> 
+
+                  <% if current_user.has_role? :admin%>
+                           <li class="divider"></li>
+                           <%= link_to "Approve",agencies_approval_path %>
+                  <% end %>
+                  <% else %>
+                          <li><%= link_to "Signup", new_user_registration_path, :class => 'navbar-link',:class =>"glyphicon glyphicon-user"  %></li>
+                        <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link',:class => "glyphicon glyphicon-log-in"  %></li>
+                  <% end %> 
+
+                
+              </ul>
+            </li>
+                      
+                  
+        </ul>
+
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+</header>
+
+
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+  </div>
+  </div>
+  <div class="container">
+  <%= render :partial => "/home/search" %>
+<%= yield %>
+</div>
+  <div id="footer"></div> 
+
+  </body>
+
+  </html>
+
+
