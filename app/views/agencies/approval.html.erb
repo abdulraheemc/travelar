@@ -10,13 +10,15 @@
   </thead>
 
   <tbody>
-    <% @agents.each do |user| %>
-      <tr>
-        <td><%= user.first_name %></td>
+   
+      <% @agents.each do |user| %>
+        <tr>
         
-        <td><%= link_to 'Approve', parvez_path(user) %></td>
+          <td><%= user.first_name %></td>
         
-      </tr>
-    <% end %>
+          <td><%= link_to 'Approve', parvez_path(user) %></td>
+        </tr>  
+      <% end %>  
+    
   </tbody>
 </table>
