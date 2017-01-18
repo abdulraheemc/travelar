@@ -1,10 +1,11 @@
 
 <h4><div class= "row">Starting City:<%= params[:from]%> ||
 Destination:<%= params[:to]%></div></h4>
+<% @package.each do |package| %>
 
 <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12">
   <div class="hovereffect">
-    <% @package.each do |package| %>
+    
     <figure class="img_wrapper" style="position: relative;"><%= image_tag package.image.url, class: "img-responsive" %></figure>
     <div class="overlay">
       <h2><%= package.name %> </h2>                 
