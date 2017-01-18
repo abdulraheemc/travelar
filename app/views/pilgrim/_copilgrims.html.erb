@@ -7,7 +7,7 @@
 				<%= ff.text_field :mobile_number,placeholder: "Mobile Number" %>&nbsp;&nbsp;&nbsp;
 			</div>
 			<div class ="col-sm-2">
-				<%= ff.text_field :gender,placeholder: "Gender" %>&nbsp;&nbsp;&nbsp;
+				<%= ff.select :gender, "<option></option><option>Male</option><option>Female</option>".html_safe ,class: "col-sm-2"%>&nbsp;&nbsp;&nbsp;
 			</div>
 			<div class ="col-sm-2">
 				<%= ff.text_field :passport_number,placeholder: "Passport Number" %>&nbsp;&nbsp;&nbsp;<br/>

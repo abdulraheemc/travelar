@@ -15,10 +15,10 @@
  Pricelimit.create(price: 10000)
  Pricelimit.create(price: 15000)
 
- @user = User.create(name: 'user1', email: 'user1@user.com', password: 'password', password_confirmation: 'password',role: 'user')
- @user = User.create(name: 'user2', email: 'user2@user.com', password: 'password', password_confirmation: 'password',role: 'user')
- @user = User.create(name: 'agent1', email: 'agent1@agent.com', password: 'password', password_confirmation: 'password',role: 'agent')
- @user = User.create(name: 'agent2', email: 'agent2@agent.com', password: 'password', password_confirmation: 'password',role: 'agent')
+ @user = User.create(name: 'user1', email: 'user1@user.com', password: 'password', password_confirmation: 'password')
+ @user = User.create(name: 'user2', email: 'user2@user.com', password: 'password', password_confirmation: 'password')
+ @user = User.create(name: 'agent1', email: 'agent1@agent.com', password: 'password', password_confirmation: 'password')
+ @user = User.create(name: 'agent2', email: 'agent2@agent.com', password: 'password', password_confirmation: 'password')
 
  @agency = Agency.create(name: 'Apple Travels', phone: 123456, address: 'Hyderabad')
  @agency = Agency.create(name: 'Beta Travels', phone: 123456, address: 'Mumbai')
