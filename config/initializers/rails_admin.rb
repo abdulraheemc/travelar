@@ -1,4 +1,5 @@
 RailsAdmin.config do |config|
+  config.current_user_method { current_user }
   config.model 'Agency' do
     list do
       field :name do

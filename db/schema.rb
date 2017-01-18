@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20161229102215) do
     t.string   "starting_city"
     t.date     "journey_date"
     t.integer  "ticket_no"
+    t.string   "trip_to"
   end
 
   create_table "pilgrims", force: :cascade do |t|
@@ -101,6 +102,7 @@ ActiveRecord::Schema.define(version: 20161229102215) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "role"
     t.string   "name"
     t.string   "role"
   end
