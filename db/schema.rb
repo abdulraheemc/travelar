@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170118124333) do
+ActiveRecord::Schema.define(version: 20170119115004) do
 
   create_table "agencies", force: :cascade do |t|
     t.string   "name"
@@ -29,10 +29,11 @@ ActiveRecord::Schema.define(version: 20170118124333) do
     t.string   "id_proof"
     t.string   "agency_name"
     t.string   "agency_phone"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.integer  "user_id"
     t.integer  "mobile_number"
+    t.boolean  "approve",       default: false, null: false
   end
 
   create_table "packages", force: :cascade do |t|

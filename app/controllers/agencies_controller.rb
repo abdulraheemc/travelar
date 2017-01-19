@@ -17,6 +17,7 @@ end
   end
 
   def approval
+    #binding.pry
     @agents = Agent.where(:approve=> false)
   end
 
