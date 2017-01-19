@@ -10,7 +10,7 @@
  User.delete_all
  Agent.delete_all
  Agency.delete_all
- Package.delete_all
+ Package.delete_all	
  @user = User.create(name: 'admin', email: 'admin@admin.com', password: 'password', password_confirmation: 'password',role: 'admin')
 
  @user.add_role :admin 
