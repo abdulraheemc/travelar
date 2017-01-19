@@ -10,7 +10,7 @@
   </thead>
 
   <tbody>
-    <%if @agents != nil %>
+
       <% @agents.each do |user| %>
         <tr>
         
@@ -19,7 +19,7 @@
           <td><%= link_to 'Approve', parvez_path(user) %></td>
         </tr>  
       <% end %>  
-    <% end %>  
+    
     
   </tbody>
 </table>
