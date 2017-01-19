@@ -5,14 +5,14 @@ Destination:<%= params[:to]%></div></h4>
 
 <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12">
   <div class="hovereffect">
-    
+
     <figure class="img_wrapper" style="position: relative;"><%= image_tag package.image.url, class: "img-responsive" %></figure>
     <div class="overlay">
-      <h2><%= package.name %> </h2>                 
+      <h2><%= package.name %> </h2>
     </div>
-              
+
   </div><br/><br/>
-  <p><h5><%= package.agency.name%></h5></p>          
+  <p><h5><%= package.agency.name%></h5></p>
   <p><h5>Price : <%= package.price %> Rupees</h5></p>
   <p><h5>Duration : <%= package.duration %></h5></p>
   <p><h5>Starting City : <%= package.starting_city %></h5></p>
@@ -21,5 +21,3 @@ Destination:<%= params[:to]%></div></h4>
   </div>
   <% end %>
 </div>
-
-              

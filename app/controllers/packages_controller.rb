@@ -5,10 +5,15 @@ class PackagesController < ApplicationController
 
   # GET /packages
   # GET /packages.json
-  def search_packages   
+  def search_packages
     #binding.pry
-    @package = Package.where(starting_city: params[:from]).where(trip_to: params[:to])
-
+    if params[:from].present?
+      @package = Package.where(starting_city: params[:from])
+    elsif params[:to].present?
+      @package = Package.where(trip_to: params[:to])
+    else
+      @package = Package.where(starting_city: params[:from]).where(trip_to: params[:to])
+    end
   end
   def index
     #binding.pry
@@ -28,7 +33,7 @@ class PackagesController < ApplicationController
      #binding.pry
     @agency = Agency.find(params[:id])
     @package = @agency.packages.new
-  
+
   end
 
   # GET /packages/1/edit

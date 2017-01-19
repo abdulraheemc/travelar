@@ -10,21 +10,27 @@
           <div class="hovereffect">
               <figure class="img_wrapper" style="position: relative;"><%= image_tag package.image.url, class: "img-responsive" %></figure>
               <div class="overlay">
-                 <h2><%= package.name %> </h2>                 
+                 <h2><%= package.name %> </h2>
               </div>
-              
+
           </div><br/><br/>
-          <p><h5><%= package.agency.name%></h5></p>          
+          <p><h5><%= package.agency.name%></h5></p>
           <p><h5>Price : <%= package.price %> Rupees</h5></p>
           <p><h5>Duration : <%= package.duration %></h5></p>
           <p><h5>Starting City : <%= package.starting_city %></h5></p>
           <p><h5>Availble Bookings : <%= package.ticket_no %></h5></p>
-          
+
           <%= link_to "Book Now", pilgrim_new_path(package), class: "btn btn-primary"%><br/><br/>
       </div>
       <% end %>
       <div id="with-button">
         <center><%= will_paginate @packages, :params => {:agency_ids => params[:agency_ids],:price_ids => params[:price_ids],:duration_ids => params[:duration_ids] }, renderer: BootstrapPagination::Rails %></center>
       </div>
+        <script>
+          $(function(){
+            $jQuery('#with-button').html(" 'home/index' )%>")
+            alert 'hello'
+          });
+        </script>
    </div>
 </div>
