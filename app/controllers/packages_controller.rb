@@ -7,12 +7,12 @@ class PackagesController < ApplicationController
   # GET /packages.json
   def search_packages
     #binding.pry
-    if params[:from].present?
-      @package = Package.where(starting_city: params[:from])
+    if params[:from].present? && params[:to].present?
+      @package = Package.where(starting_city: params[:from]).where(trip_to: params[:to])      
     elsif params[:to].present?
       @package = Package.where(trip_to: params[:to])
-    else
-      @package = Package.where(starting_city: params[:from]).where(trip_to: params[:to])
+    elsif params[:from].present?
+      @package = Package.where(starting_city: params[:from])
     end
   end
   def index
