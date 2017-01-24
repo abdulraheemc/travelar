@@ -10,6 +10,8 @@
       </ul>
     </div>
   <% end %>
+
+  
   <%= f.hidden_field :agency_id, :value => @agency.id if @agency %>
   <div class="field">
     <%= f.label :name %><br>
@@ -48,4 +50,6 @@
         <%= f.submit "Submit", class: "btn btn-primary" %>
     </div>
 </div>
+  
+  
 <% end %>

@@ -24,7 +24,7 @@
       </div>
       <% end %>
       <div id="with-button">
-        <center><%= will_paginate @packages, :params => {:agency_ids => params[:agency_ids],:price_ids => params[:price_ids],:duration_ids => params[:duration_ids] }, renderer: BootstrapPagination::Rails %></center>
+        <center><%= will_paginate @packages, :params => {:trip_ids => params[:trip_ids],:agency_ids => params[:agency_ids],:price_ids => params[:price_ids],:duration_ids => params[:duration_ids] }, renderer: BootstrapPagination::Rails %></center>
       </div>
    </div>
 </div>

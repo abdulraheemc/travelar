@@ -20,7 +20,7 @@ class PackagesController < ApplicationController
    # if current_user.agents.packages
     #  @packages = current_user.agents.packages
     #end
-    @packages = Package.all
+  @packages = Package.paginate(page: params[:page], per_page: 10)
   end
 
   # GET /packages/1
