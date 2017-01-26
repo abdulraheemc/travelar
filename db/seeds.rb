@@ -15,12 +15,12 @@
 
  @user.add_role :admin 
  Pricelimit.create(price: 5000)
- Pricelimit.create(price: 10000)
- Pricelimit.create(price: 15000)
- Pricelimit.create(price: 20000)
- Pricelimit.create(price: 25000)
- Pricelimit.create(price: 30000)
- Pricelimit.create(price: 35000)
+ Pricelimit.create(price: 55000)
+ Pricelimit.create(price: 105000)
+ Pricelimit.create(price: 155000)
+ Pricelimit.create(price: 205000)
+ Pricelimit.create(price: 255000)
+ Pricelimit.create(price: 305000)
 
  @user = User.create(name: 'user1', email: 'user1@user.com', password: 'password', password_confirmation: 'password',role: 'agent')
  @user = User.create(name: 'user2', email: 'user2@user.com', password: 'password', password_confirmation: 'password', role: 'agent')
