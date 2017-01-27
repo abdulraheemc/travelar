@@ -72,7 +72,7 @@ td, th {
       <% Pricelimit.select(:price).each do |price| %>
         <tr>
           <td>
-          <%= check_box_tag "price_ids[]", price.price, @selected_prices.include?(price.price.to_s), :onclick => "javascript: f1();" %><%= price.price - 4999%> - <%= price.price %>
+          <%= check_box_tag "price_ids[]", price.price, @selected_prices.include?(price.price.to_s), :onclick => "javascript: f1();" %><%= price.price - 49999%> - <%= price.price %>
           </td>
         </tr>
       <% end %>

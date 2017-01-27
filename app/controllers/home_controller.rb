@@ -44,7 +44,7 @@ def index
     end
 
     if params[:price_ids]
-        @packages = Package.where("price >= ? and price <= ?", params[:price_ids].first.to_i - 4999, params[:price_ids].last)
+        @packages = Package.where("price >= ? and price <= ?", params[:price_ids].first.to_i - 49999, params[:price_ids].last)
     end
 
     if params[:duration_ids]
@@ -56,7 +56,7 @@ def index
     end
 
     if params[:trip_ids] && params[:price_ids]
-      @packages = Package.where("trip_to IN (?) AND price >= ? and price <= ?", params[:trip_ids], params[:price_ids].first.to_i - 4999, params[:price_ids].last)
+      @packages = Package.where("trip_to IN (?) AND price >= ? and price <= ?", params[:trip_ids], params[:price_ids].first.to_i - 49999, params[:price_ids].last)
     end
 
     if params[:trip_ids] && params[:duration_ids]
@@ -64,11 +64,11 @@ def index
     end
 
     if params[:agency_ids] && params[:price_ids]
-      @packages = Package.where("agency_id IN (?) AND price >= ? and price <= ?", params[:agency_ids], params[:price_ids].first.to_i - 4999, params[:price_ids].last)
+      @packages = Package.where("agency_id IN (?) AND price >= ? and price <= ?", params[:agency_ids], params[:price_ids].first.to_i - 49999, params[:price_ids].last)
     end
 
     if params[:price_ids] && params[:duration_ids]
-      @packages = Package.where("price >= ? and price <= ? AND duration IN (?)", params[:price_ids].first.to_i - 4999, params[:price_ids].last, params[:duration_ids])  
+      @packages = Package.where("price >= ? and price <= ? AND duration IN (?)", params[:price_ids].first.to_i - 49999, params[:price_ids].last, params[:duration_ids])  
     end
 
     if params[:agency_ids] && params[:duration_ids]
@@ -76,7 +76,7 @@ def index
     end
 
     if params[:trip_ids] && params[:agency_ids] && params[:price_ids]
-      @packages = Package.where("trip_to IN (?) AND agency_id IN (?) AND price >= ? and price <= ?", params[:trip_ids],params[:agency_ids], params[:price_ids].first.to_i - 4999, params[:price_ids].last)                     
+      @packages = Package.where("trip_to IN (?) AND agency_id IN (?) AND price >= ? and price <= ?", params[:trip_ids],params[:agency_ids], params[:price_ids].first.to_i - 49999, params[:price_ids].last)                     
     end
 
     if params[:trip_ids] && params[:agency_ids] && params[:duration_ids]
@@ -84,15 +84,15 @@ def index
     end
 
     if params[:trip_ids] && params[:price_ids] && params[:duration_ids]
-      @packages = Package.where("trip_to IN (?) AND price >= ? and price <= ? AND duration IN (?)", params[:trip_ids],params[:price_ids].first.to_i - 4999, params[:price_ids].last, params[:duration_ids])                     
+      @packages = Package.where("trip_to IN (?) AND price >= ? and price <= ? AND duration IN (?)", params[:trip_ids],params[:price_ids].first.to_i - 49999, params[:price_ids].last, params[:duration_ids])                     
     end
     
     if params[:agency_ids] && params[:price_ids] && params[:duration_ids]
-      @packages = Package.where("agency_id IN (?) AND price >= ? and price <= ? AND duration IN (?)", params[:agency_ids], params[:price_ids].first.to_i - 4999, params[:price_ids].last ,params[:duration_ids])                     
+      @packages = Package.where("agency_id IN (?) AND price >= ? and price <= ? AND duration IN (?)", params[:agency_ids], params[:price_ids].first.to_i - 49999, params[:price_ids].last ,params[:duration_ids])                     
     end
 
     if params[:trip_ids] && params[:agency_ids] && params[:price_ids] && params[:duration_ids]
-      @packages = Package.where("trip_to IN (?) AND agency_id IN (?) AND price >= ? and price <= ? AND duration IN (?)",params[:trip_ids], params[:agency_ids], params[:price_ids].first.to_i - 4999, params[:price_ids].last ,params[:duration_ids])                     
+      @packages = Package.where("trip_to IN (?) AND agency_id IN (?) AND price >= ? and price <= ? AND duration IN (?)",params[:trip_ids], params[:agency_ids], params[:price_ids].first.to_i - 49999, params[:price_ids].last ,params[:duration_ids])                     
     end
 
     if @packages.nil?
