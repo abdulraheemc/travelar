@@ -1,8 +1,11 @@
 class PilgrimController < ApplicationController
    before_action :authenticate_user!
   def new
-  	@pilgrim = Pilgrim.new
-  	@pilgrim.copilgrims.build
+    @package = Package.find(params[:id])
+    $pilgrim = @package.pilgrims.new
+    #binding.pry
+  	$pilgrim.copilgrims.build
+  
   end
   def show
   end
@@ -11,6 +14,7 @@ class PilgrimController < ApplicationController
    # binding.pry
     @pilgrim = Pilgrim.new(pilgrim_params)
     if @pilgrim.save
+
     end
      
   end
@@ -51,7 +55,7 @@ class PilgrimController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def pilgrim_params
       params.require(:pilgrim).permit(:firstname,:middlename,:lastname,:passport_number,
-        :gender,:age_group,:email,:mobile_number,:passport_image, copilgrims_attributes: [:firstname, :gender, :passport_number, :mobile_number])
+        :gender,:age_group,:email,:mobile_number,:passport_image, :package_id, copilgrims_attributes: [:firstname, :gender, :passport_number, :mobile_number])
     end
 end
 

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'checkouts/stripe_checkout'
+  post 'stripe_checkout' => 'checkouts#stripe_checkout'
+
   #devise_for :users, :controllers => { registrations: 'registrations' }
 
   get 'agencies/approval'

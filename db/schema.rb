@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161229102215) do
+ActiveRecord::Schema.define(version: 20170220122905) do
 
   create_table "agencies", force: :cascade do |t|
     t.string   "name"
@@ -50,6 +50,14 @@ ActiveRecord::Schema.define(version: 20161229102215) do
     t.date     "journey_date"
     t.integer  "ticket_no"
     t.string   "trip_to"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.string   "email"
+    t.integer  "package_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "card_token"
   end
 
   create_table "pilgrims", force: :cascade do |t|
@@ -104,7 +112,6 @@ ActiveRecord::Schema.define(version: 20161229102215) do
     t.datetime "updated_at",                          null: false
     t.string   "role"
     t.string   "name"
-    t.string   "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

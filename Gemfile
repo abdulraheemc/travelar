@@ -65,4 +65,5 @@ end
 gem 'pry'
 
 gem 'will_paginate-bootstrap'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 

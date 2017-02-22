@@ -1,2 +1,56 @@
-<h1>Pilgrim#create</h1>
-<p>Find me in app/views/pilgrim/create.html.erb</p>
+<h1>Trip Details</h1>
+
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong> Package Name:</strong>
+  <%= $pilgrim.package.name%>
+</p>
+
+<p>
+  <strong>Passenger Name:</strong>
+  <%= $pilgrim.firstname %>
+</p>
+
+<p>
+  <strong>Passenger Email:</strong>
+  <%= $pilgrim.email %>
+</p>
+
+<p>
+  <strong>Passenger Age:</strong>
+  <%= $pilgrim.age_group %>
+</p>
+
+<p>
+  <strong>Passenger Gender:</strong>
+  <%= $pilgrim.gender %>
+</p>
+
+<p>
+  <strong>Passenger Passport Number:</strong>
+  <%= $pilgrim.passport_number %>
+</p>
+
+
+
+<p>
+  <strong>Number Of Passengers: 3 </strong>
+</p>
+
+<p>
+  <strong>Total Price:</strong>
+  <%= $pilgrim.package.price*3 %>
+</p>
+
+
+
+<%= link_to "Make Payment", checkouts_stripe_checkout_path %>
+
+
+
+
+
+
