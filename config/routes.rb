@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'checkouts/stripe_checkout'
-  post 'stripe_checkout' => 'checkouts#stripe_checkout'
+  get 'checkouts/:id/stripe_checkout', to: "checkouts#stripe_checkout", as: "stripecheckout"
 
+  post 'stripe_checkout' => 'checkouts#stripe_checkout'
+  
   #devise_for :users, :controllers => { registrations: 'registrations' }
 
   get 'agencies/approval'
@@ -21,6 +23,7 @@ Rails.application.routes.draw do
   post 'pilgrim/create'
   get 'pilgrim/show'
   get 'pilgrim/index'
+  get 'pilgrim/:id/payment', to: "pilgrim#payment", as: "payment"
 
   #devise_for :users
   resources :agents 

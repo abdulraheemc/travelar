@@ -6,53 +6,53 @@
 
 <p>
   <strong> Package Name:</strong>
-  <%= @pilgrim.package.name%>
+  <%= @data.package.name%>
 </p>
 
 <p>
   <strong>Passenger Name:</strong>
-  <%= @pilgrim.firstname %>
+  <%= @data.firstname %>
 </p>
 
 <p>
   <strong>Passenger Email:</strong>
-  <%= @pilgrim.email %>
+  <%= @data.email %>
 </p>
 
 <p>
   <strong>Passenger Age:</strong>
-  <%= @pilgrim.age_group %>
+  <%= @data.age_group %>
 </p>
 
 <p>
   <strong>Passenger Gender:</strong>
-  <%= @pilgrim.gender %>
+  <%= @data.gender %>
 </p>
 
 <p>
   <strong>Passenger Passport Number:</strong>
-  <%= @pilgrim.passport_number %>
+  <%= @data.passport_number %>
 </p>
 
 <h2>Co-Pilgrims</h2>
 
-<% @pilgrim.copilgrims.each do |cp| %>
+<% @data.copilgrims.each do |cp| %>
 <%= cp.firstname %>
 <% end %>
 
 <p>
-  <strong>Number Of Passengers: <%= @pilgrim.copilgrims.count +1%>
+  <strong>Number Of Passengers: <%= (@data.copilgrims.count + 1)%>
 </strong>
 </p>
 
 <p>
   <strong>Total Price:</strong>
-  <%=  (@pilgrim.copilgrims.count + 1) * @pilgrim.package.price %>
+  <%= (@data.copilgrims.count + 1) * @data.package.price %>
 </p>
 
 
 
-<%= link_to "Make Payment", stripecheckout_path(@pilgrim) %>
+<%= link_to "Make Payment", stripecheckout_path(@data) %>
 
 
 

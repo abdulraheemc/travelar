@@ -1,11 +1,15 @@
 class CheckoutsController < ApplicationController
   def stripe_checkout
-  	  @amount = $pilgrim.package.price*3
+  	if !params[:stripeToken]
+  	  	@data = Pilgrim.find params[:id]
+	    @amount = (@data.copilgrims.count + 1) * @data.package.price
+	    @email = @data.email
 	  #This will create a charge with stripe for $10
 	  #Save this charge in your DB for future reference
-	  if params[:stripeToken]
+	else
+		
 		  charge = Stripe::Charge.create(
-		                  :amount => @amount * 100,
+		                  :amount => @amount,
 		                  :currency => "inr",
 		                  :source => params[:stripeToken],
 		                  :description => "Test Charge"

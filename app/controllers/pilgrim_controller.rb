@@ -2,21 +2,26 @@ class PilgrimController < ApplicationController
    before_action :authenticate_user!
   def new
     @package = Package.find(params[:id])
-    $pilgrim = @package.pilgrims.new
+    @pilgrim = @package.pilgrims.new
     #binding.pry
-  	$pilgrim.copilgrims.build
+  	@pilgrim.copilgrims.build
   
   end
   def show
   end
   def create
-
-   # binding.pry
     @pilgrim = Pilgrim.new(pilgrim_params)
     if @pilgrim.save
-
+      redirect_to payment_path(@pilgrim)
     end
      
+  end
+
+  def payment
+    #binding.pry
+    @data = Pilgrim.find params[:id]
+    @amount = (@data.copilgrims.count + 1) * @data.package.price
+    @email = @data.email
   end
    def index
    	@pilgrims = Pilgrim.all

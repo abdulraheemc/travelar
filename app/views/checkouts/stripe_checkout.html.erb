@@ -1,3 +1,3 @@
 <%= form_tag('/stripe_checkout',{method: :post}) do %>
-  <script class="stripe-button" data-amount="@amount" data-currency="INR" data-email="customer@example.com" data-key="pk_test_NjlMZPedRJexWshV9tBNaiSR" src="https://checkout.stripe.com/checkout.js"></script>
+  <script class="stripe-button" data-amount=<%=  @amount.to_i * 100 %> data-currency="INR" data-email=<%=@email%> data-key="pk_test_NjlMZPedRJexWshV9tBNaiSR" src="https://checkout.stripe.com/checkout.js"></script>
 <% end %>
